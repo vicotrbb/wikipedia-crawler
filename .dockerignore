@@ -1,7 +1,7 @@
 # Misc
 .git
 .ipynb_checkpoints/*
-notebooks/*
+notebooks
 
 # Environments
 .env

@@ -1,6 +1,7 @@
 import wikipedia
 import time
 import re
+import sys
 import boto3
 import json
 import os
@@ -25,14 +26,15 @@ def executeCheckpoint(topics):
     os.remove(file)
     return 0
 
+def setupLogger():
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 def crawl():
     visited_topics = []
     topics = {}
     content_goal = 25000
-    checkpoint_treshold = 5
+    checkpoint_treshold = 25
     checkpoint_counter = 0
-    logging.basicConfig(filename='error.log', level=logging.INFO)
 
     while len(visited_topics) <= content_goal:
         topic = wikipedia.random(pages=1)
@@ -63,4 +65,5 @@ def crawl():
         else:
             continue
 
+setupLogger()
 crawl()

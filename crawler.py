@@ -37,6 +37,7 @@ def crawl():
         page = wikipedia.page(topic)
         if page is not None or page != '':
           visited_topics.append(topic)
+          print(f'Visiting topic: {topic}')
         else:
           continue
 
@@ -47,6 +48,7 @@ def crawl():
 
         if checkpoint_counter >= checkpoint_treshold:
           checkpoint_counter = executeCheckpoint(topics)
+          print(f'Checkpoint reached, {len(visited_topics)} visited')
         else:
           checkpoint_counter += 1
 

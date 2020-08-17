@@ -33,7 +33,7 @@ def crawl():
     visited_topics = []
     topics = {}
     content_goal = 25000
-    checkpoint_treshold = 25
+    checkpoint_treshold = 1000
     checkpoint_counter = 0
 
     while len(visited_topics) <= content_goal:
@@ -58,7 +58,7 @@ def crawl():
                 else:
                     checkpoint_counter += 1
 
-                time.sleep(1)
+                time.sleep(0.5)
             except Exception as ex:
                 logging.error(ex)
                 continue
